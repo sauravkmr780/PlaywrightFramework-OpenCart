@@ -3,17 +3,18 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
+"scripts": {
+    "clean:allure": "node -e \"const fs = require('fs'); ['allure-results', 'allure-report'].forEach(d => fs.existsSync(d) && fs.rmSync(d, { recursive: true, force: true }))\"",
     "allure:generate": "allure generate allure-results --clean -o allure-report",
     "allure:open": "allure open allure-report",
     "allure:report": "npm run allure:generate && npm run allure:open",
-    "test:master": "playwright test --grep @master",
-    "test:sanity": "playwright test --grep @sanity",
-    "test:regression": "playwright test --grep @regression",
-    "test:datadriven": "playwright test --grep @datadriven",
-    "test:e2e": "playwright test --grep @end-to-end",
-    "test:master:headed": "playwright test --grep @master --headed",
-    "test:sanity:debug": "playwright test --grep @sanity --debug"
+    "test:master": "npm run clean:allure && playwright test --grep @master",
+    "test:sanity": "npm run clean:allure && playwright test --grep @sanity",
+    "test:regression": "npm run clean:allure && playwright test --grep @regression",
+    "test:datadriven": "npm run clean:allure && playwright test --grep @datadriven",
+    "test:e2e": "npm run clean:allure && playwright test --grep @end-to-end",
+    "test:master:headed": "npm run clean:allure && playwright test --grep @master --headed",
+    "test:sanity:debug": "npm run clean:allure && playwright test --grep @sanity --debug"
   },
   "keywords": [],
   "author": "",
