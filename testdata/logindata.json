@@ -1,0 +1,14 @@
+[
+  {
+    "testname": "Valid login",
+    "email": "sauravkmr780@gmail.com",
+    "password": "@1Infosys",
+    "validity": "success"
+  },
+  {
+    "testname": "Invalid login",
+    "email": "abcxyz@gmail.com",
+    "password": "abcxyz",
+    "validity": "failure"
+  }
+]
