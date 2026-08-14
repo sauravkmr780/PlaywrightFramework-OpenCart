@@ -28,7 +28,7 @@ test.afterEach(async ({ page }) => {
   await page.close();
 });
 
-test("User Logout test",{ tag: ["@master", "@sanity", "@regression"] },async ({ page }) => {
+test("User Logout test",{ tag: ["@master", "@regression"] },async ({ page }) => {
     // Step 1: Open My Account dropdown and navigate to Login page
     await homepage.clickMyAccount();
     await homepage.clickLoginLink();
